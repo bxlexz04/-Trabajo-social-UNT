@@ -1,306 +1,53 @@
-/* Importar fuentes de Google Fonts para una estética más prolija */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
-
-:root {
-    /* Paleta de colores ajustada según las indicaciones */
-    --color-primary-light: #E6F2FF; /* Celeste muy claro (fondo general) */
-    --color-primary-medium: #BFDFFF; /* Celeste medio claro (encabezado, hover en botones) */
-    --color-primary-dark: #ADD8E6; /* Light Blue (bordes, separación de años) */
-    --color-accent: #00B4FF; /* Celeste intenso (botón de filtro activo, borde de materia aprobada) */
-    --color-text-dark: #212121; /* Negro casi puro para texto principal y títulos */
-    --color-text-light: #FFFFFF; /* Blanco puro */
-    --color-shadow-light: rgba(0, 0, 0, 0.1);
-    --color-shadow-medium: rgba(0, 0, 0, 0.15);
-    --color-border-subtle: #E0E0E0; /* Gris muy claro para bordes sutiles */
-
-    /* Colores para materia aprobada (celeste más brillante y oscuro) */
-    --color-aprobada-bg: #0077CC; /* Celeste oscuro brillante */
-    --color-aprobada-text: #FFFFFF; /* Texto blanco para contraste sobre celeste oscuro */
+<div class="year-container">
+<div class="year-title">Primer Año</div>
+<div class="materias-grid">
+<button class="materia">Metodología del trabajo social</button>
+<button class="materia">Introducción al trabajo social</button>
+<button class="materia">Trabajo Social, Teorías del Desarrollo...</button>
+<button class="materia">Trabajo social y Problemática filosófica</button>
+<button class="materia">Trabajo social e historia argentina...</button>
+<button class="materia">Trabajo social y Antropología social...</button>
+</div>
+</div>
+<style>
+.year-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 1em;
+padding: 1em;
+border: 1px solid #ccc;
+border-radius: 10px;
+background-color: #f9f9f9;
 }
-
-body {
-    font-family: 'Open Sans', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-primary-light); /* Fondo celeste muy claro de la paleta */
-    color: var(--color-text-dark);
-    line-height: 1.6;
-    background-image: url('http://googleusercontent.com/file_content/0'); /* Imagen de fondo de cuadrilla */
-    background-repeat: repeat;
-    background-size: contain; /* Ajusta la imagen para que se repita y quepa bien */
+.year-title {
+background-color: #ADD8E6; /* Light Blue */
+color: #000;
+padding: 0.5em 1em;
+border-radius: 5px;
+margin-bottom: 0.5em;
 }
-
-header {
-    background-color: var(--color-primary-medium); /* Celeste medio claro para el encabezado */
-    color: var(--color-text-dark);
-    padding: 2.5em 1em;
-    text-align: center;
-    border-bottom: 3px solid var(--color-primary-dark);
-    box-shadow: 0 4px 8px var(--color-shadow-medium);
+.materias-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 0.5em;
+width: 100%;
 }
-
-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em;
-    margin-bottom: 0.2em;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--color-text-dark); /* Títulos negros */
-}
-
-header h2 {
-    font-family: 'Montserrat', sans-serif;
-    margin-top: 0;
-    font-size: 1.2em;
-    color: var(--color-text-dark); /* Títulos negros */
-    font-weight: 400;
-}
-
-.filters {
-    text-align: center;
-    padding: 1.5em 0.5em;
-    background-color: var(--color-primary-light);
-    border-bottom: 1px solid var(--color-border-subtle);
-    box-shadow: 0 2px 4px var(--color-shadow-light);
-}
-
-.filter-btn {
-    background-color: var(--color-text-light);
-    color: var(--color-text-dark);
-    border: 1px solid var(--color-border-subtle);
-    padding: 0.8em 1.5em;
-    margin: 0.4em;
-    border-radius: 25px;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px var(--color-shadow-light);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-}
-
-.filter-btn:hover {
-    background-color: var(--color-primary-medium); /* Celeste medio claro al pasar el ratón */
-    color: var(--color-text-dark);
-    border-color: var(--color-primary-dark);
-    box-shadow: 0 6px 12px var(--color-shadow-medium);
-    transform: translateY(-2px);
-}
-
-.filter-btn.active {
-    background-color: var(--color-accent); /* Celeste intenso para el activo */
-    color: var(--color-text-light);
-    border-color: var(--color-accent);
-    box-shadow: 0 6px 12px var(--color-shadow-medium);
-    transform: translateY(-1px);
-}
-
-#malla-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1.5em 1em;
-    gap: 2em;
-    max-width: 1200px;
-    margin: 2em auto;
-    background-color: var(--color-text-light); /* Fondo blanco para el contenedor principal */
-    border-radius: 15px;
-    box-shadow: 0 8px 16px var(--color-shadow-medium);
-}
-
-.year-column {
-    background-color: var(--color-primary-light); /* Celeste muy claro para cada columna de año */
-    padding: 1.5em;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px var(--color-shadow-medium);
-    flex: 1;
-    min-width: 280px;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    transition: all 0.3s ease;
-}
-
-.year-column:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 16px var(--color-shadow-medium);
-}
-
-.year-column h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.6em;
-    color: var(--color-text-dark); /* Títulos negros */
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0.8em;
-    padding-bottom: 0.5em;
-    border-bottom: 2px solid var(--color-primary-dark);
-}
-
-.materias-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8em;
-}
-
-/* ESTILOS DE CADA MATERIA (AHORA ACTÚA COMO BOTÓN GRANDE) */
 .materia {
-    background-color: var(--color-text-light); /* Fondo blanco para las burbujas de materia */
-    border-radius: 25px;
-    padding: 1.8em 2em; /* Mucho más grande */
-    box-shadow: 0 2px 5px var(--color-shadow-light);
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    cursor: pointer;
-    text-align: left;
-    border: none;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
+background-color: #e0f7fa; /* Light Cyan */
+color: #000;
+border: 1px solid #b2ebf2;
+border-radius: 8px;
+padding: 0.8em;
+text-align: center;
+cursor: pointer;
+transition: background-color 0.3s ease;
 }
-
 .materia:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--color-shadow-medium);
-    background-color: var(--color-primary-medium); /* Un celeste suave al pasar el mouse */
+background-color: #b2ebf2;
 }
-
-.materia h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2em; /* Fuente más grande para el título de la materia */
-    color: var(--color-text-dark); /* Texto negro */
-    margin: 0 0 0.4em 0;
-    line-height: 1.3;
-}
-
-.materia p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em; /* Fuente más grande para la descripción de la materia */
-    color: var(--color-text-dark); /* Texto negro */
-    margin: 0;
-}
-
-/* ESTILOS DE MATERIA APROBADA (Celeste más brillante y oscuro) */
 .materia.aprobada {
-    background-color: var(--color-aprobada-bg); /* Celeste oscuro brillante */
-    border: 1px solid var(--color-accent);
-    box-shadow: 0 4px 8px var(--color-shadow-medium);
-    color: var(--color-aprobada-text); /* Texto blanco para contraste */
+background-color: #80deea; /* Light Sky Blue */
+color: #fff;
 }
-
-.materia.aprobada h4,
-.materia.aprobada p {
-    color: var(--color-aprobada-text); /* Texto blanco para contraste */
-}
-
-.materia.aprobada::after {
-    content: '✅';
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    font-size: 1.5em;
-}
-
-
-/* Media Queries para responsividad */
-
-/* Pantallas medianas (tabletas, etc.) */
-@media (max-width: 1200px) {
-    #malla-container {
-        gap: 1.5em;
-        padding: 1.5em 0.5em;
-        margin: 1.5em auto;
-    }
-
-    .year-column {
-        min-width: 250px;
-        max-width: 300px;
-        padding: 1.2em;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
-
-    header h2 {
-        font-size: 1em;
-    }
-
-    .filter-btn {
-        padding: 0.7em 1.2em;
-        font-size: 0.9em;
-    }
-}
-
-/* Pantallas pequeñas (teléfonos móviles - columnas horizontales debajo del año) */
-@media (max-width: 768px) {
-    #malla-container {
-        flex-direction: column; /* Apila las columnas en pantallas pequeñas */
-        gap: 1.5em;
-        padding: 1em;
-        margin: 1em auto;
-        box-shadow: none;
-        border-radius: 0;
-    }
-
-    .year-column {
-        min-width: unset;
-        max-width: 100%;
-        box-shadow: 0 4px 8px var(--color-shadow-medium);
-        padding: 1em;
-    }
-
-    header {
-        padding: 1.5em 1em;
-    }
-
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    header h2 {
-        font-size: 0.9em;
-    }
-
-    .filter-btn {
-        padding: 0.6em 1em;
-        font-size: 0.8em;
-        margin: 0.3em;
-    }
-
-    .filters {
-        padding: 1em 0.5em;
-    }
-
-    .materia {
-        padding: 1.2em 1.5em; /* Ajuste para móviles, un poco menos grandes */
-    }
-
-    .materia h4 {
-        font-size: 1.1em;
-    }
-
-    .materia p {
-        font-size: 0.9em;
-    }
-}
-
-/* Si quieres que los botones de filtro se apilen en pantallas muy pequeñas */
-@media (max-width: 480px) {
-    .filters {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5em;
-    }
-    .filter-btn {
-        flex-basis: 45%;
-        margin: 0.2em;
-    }
-    }
-    
+</style>
