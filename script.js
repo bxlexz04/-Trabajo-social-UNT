@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let materiasAprobadas = new Set(JSON.parse(localStorage.getItem('materiasAprobadas')) || []);
     let currentFilterYear = 'all';
 
-    const mallaContainer = document.getElementById("malla-container"); // Cambiado a malla-container
+    const mallaContainer = document.getElementById("malla-container"); // Usamos este ID para el contenedor principal
     const filterButtons = document.querySelectorAll(".filter-btn");
 
     function renderMalla() {
@@ -58,15 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // Crear columnas para cada año
         const years = [1, 2, 3, 4, 5];
         const yearColumns = {};
+        
         years.forEach(year => {
             const column = document.createElement("div");
             column.className = "year-column";
             column.dataset.year = year;
             column.innerHTML = `<h3>${year}º Año</h3>`;
             const materiasList = document.createElement("div"); // Contenedor para las materias dentro de la columna
-            materiasList.className = "materias-list";
+            materiasList.className = "materias-list"; // Nueva clase para el contenedor de materias dentro de la columna
             column.appendChild(materiasList);
-            yearColumns[year] = materiasList;
+            yearColumns[year] = materiasList; // Guardamos la referencia al contenedor de materias
         });
 
         materiasData.forEach(materia => {
@@ -136,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentFilterYear === 'all') {
             years.forEach(year => mallaContainer.appendChild(yearColumns[year].parentNode));
         } else {
+            // Solo añadir la columna del año filtrado
             mallaContainer.appendChild(yearColumns[parseInt(currentFilterYear)].parentNode);
         }
 
@@ -144,9 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function toggleAprobada(id) {
         if (materiasAprobadas.has(id)) {
-            materiasAprobadas.delete(id);
+            materiasAprobadas.delete(id); // Desmarcar como aprobada
         } else {
-            materiasAprobadas.add(id);
+            materiasAprobadas.add(id); // Marcar como aprobada
         }
         localStorage.setItem('materiasAprobadas', JSON.stringify(Array.from(materiasAprobadas)));
         renderMalla(); // Re-renderizar para actualizar estados
@@ -219,4 +221,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderMalla(); // Renderiza la malla inicial al cargar la página
 });
-
+         
