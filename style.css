@@ -68,7 +68,7 @@ header h2 {
 
 /* Contenedor principal de la malla para las columnas */
 #malla-container {
-    display: flex;
+    display: flex; /* Usamos flexbox para las columnas */
     justify-content: center;
     gap: 20px; /* Espacio entre las columnas */
     padding: 2rem;
@@ -83,6 +83,8 @@ header h2 {
     min-width: 280px; /* Ancho mínimo para cada columna */
     max-width: 320px; /* Ancho máximo para cada columna */
     flex-grow: 1; /* Permite que las columnas crezcan */
+    display: flex; /* Para que el contenido de la columna se organice verticalmente */
+    flex-direction: column;
 }
 
 .year-column h3 {
@@ -229,5 +231,5 @@ header h2 {
     .materia {
         padding: 1rem;
     }
-}
-
+    }
+            
