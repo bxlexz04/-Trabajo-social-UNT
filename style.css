@@ -1,0 +1,173 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fce4ec; /* Rosa muy claro, base cerezo */
+    margin: 0;
+    padding: 0;
+    color: #4a148c; /* Morado oscuro para el texto principal */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #e91e63; /* Rosa fuerte */
+    color: white;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-bottom: 5px solid #d81b60; /* Rosa un poco más oscuro */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.filters {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #f8bbd0; /* Rosa claro */
+    border-bottom: 2px solid #e91e63;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.filter-btn {
+    background-color: #8e24aa; /* Morado */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    margin: 0.3rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.filter-btn:hover {
+    background-color: #6a1b9a; /* Morado más oscuro */
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background-color: #c2185b; /* Rosa-rojizo */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border: 2px solid #880e4f;
+}
+
+.malla-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.materia {
+    background-color: #fffde7; /* Amarillo muy pálido, para contraste */
+    border: 2px solid #ef9a9a; /* Rosa-rojizo claro */
+    border-radius: 15px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.materia:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.materia-header {
+    margin-bottom: 0.5rem;
+}
+
+.materia h3 {
+    margin: 0 0 0.5rem 0;
+    color: #8e24aa; /* Morado */
+    font-size: 1.3em;
+}
+
+.materia span {
+    font-size: 0.9em;
+    color: #6a1b9a; /* Morado más claro */
+}
+
+.materia-status {
+    font-size: 0.85em;
+    color: #757575;
+    margin-top: 0.5rem;
+    min-height: 20px; /* Para mantener la altura consistente */
+}
+
+.materia.aprobada {
+    background-color: #e0f2f7; /* Azul cielo claro */
+    border-color: #03a9f4; /* Azul brillante */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.materia.aprobada h3, .materia.aprobada span, .materia.aprobada .materia-status {
+    color: #1a237e; /* Azul oscuro */
+}
+
+.materia.bloqueada {
+    opacity: 0.6;
+    background-color: #f3e5f5; /* Lavanda muy claro */
+    border-color: #ab47bc; /* Morado claro */
+    cursor: not-allowed;
+    pointer-events: none; /* Deshabilita clics en materias bloqueadas */
+}
+
+.materia.bloqueada .mark-btn {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.mark-btn {
+    background-color: #ff80ab; /* Rosa chicle */
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    margin-top: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.mark-btn:hover {
+    background-color: #f50057; /* Rosa más oscuro */
+    transform: translateY(-2px);
+}
+
+.materia.aprobada .mark-btn {
+    background-color: #4caf50; /* Verde para aprobada */
+    cursor: default;
+}
+
+.materia.aprobada .mark-btn:hover {
+    background-color: #4caf50; /* No cambia al pasar el ratón */
+    transform: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .malla-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    .filter-btn {
+        display: block;
+        width: calc(100% - 1rem);
+        margin: 0.5rem auto;
+    }
+}
+
